@@ -1,0 +1,42 @@
+/*body > div.poster_wrap > div.main > img.main-img-right {
+  width: 50%;
+}*/
+
+#selected-features-and-target-variable > div > img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1cm;
+}
+
+#selected-features-and-target-variable > div > div{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.references{
+  font-size:30px !important;
+}
+
+.main p{
+  padding-top: 8% !important;
+}
+
+img.main-img-left{
+  padding-bottom: 1cm !important;
+}
+
+img.main-img-right{
+  padding-bottom: 1cm !important;
+}
+
+.csl-entry{
+  display: list-item;
+}
+
+/*.main{
+  background-image: linear-gradient(#004C97 5%, #FFF) !important;
+}
+
+/*TODO: ADJUST THE BORDERS*/
