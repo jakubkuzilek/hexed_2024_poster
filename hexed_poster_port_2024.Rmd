@@ -1,0 +1,160 @@
+---
+main_topsize: 0.16 #percent coverage of the poster
+main_bottomsize: 0.08
+#ESSENTIALS
+#title: "The Actionable Explanations for Student Success Prediction Models"
+title: "A Benchmark Study on the Quality of Counterfactual Methods"
+author:
+  - name: Mustafa Cavus
+    affil: 1
+    email: mustafacavus@eskisehir.edu.tr
+    # orcid: 0000-0001-9213-4257
+  - name: Jakub Kuzilek
+    affil: 2
+    email: jakub.kuzilek@hu-berlin.de
+affiliation:
+  - num: 1
+    address: Eskisehir Technical University, Department of Statistics, Eskisehir, Turkiye
+  - num: 2
+    address: Humboldt-Universität zu Berlin, Unter den Linden 6, 10099, Berlin, Germany
+main_findings:
+  - "The **Actionable Explanations** for **Student Success Prediction** Models"
+primary_colour: "#004C97"
+secondary_colour: "#B3D9FF"
+#main_width: 0.38
+body_textsize: "42px"
+title_textsize: "55pt"
+subtitle_textsize: "40pt"
+logoleft_name: ./logo.png
+logoright_name: ./logo2.png
+logocenter_name: ./qrcode.png
+output: 
+  posterdown::posterdown_betterport:
+    self_contained: true
+    pandoc_args: --mathjax
+    highlight: haddock
+    number_sections: false
+    css: "style.css"
+link-citations: true
+knit: pagedown::chrome_print
+bibliography: packages.bib
+---
+# Introduction
+
+* Trusted Learning Analytics (TLA) make use of Explainable Artificial Intelligence (XAI) [@drachsler2018trusted]
+* Counterfactual explanations = necessary variable changes to flip the prediction [@artelt_and_hammer_2019]
+* Counterfactual explanations in TLA [@tsiakmaki_et_al_2021, @zhang_et_al_2023, @afrin_et_al_2023]
+* **Aim**: Investigation of the quality of the generated counterfactual explanations
+
+# Research Questions
+<font size="48px">&rarr; *What is the most appropriate method for generating the counterfactual explanations?*</font>
+
+<font size="48px">&rarr; *What is the most relevant quality measure of the methods for generating counterfactual explanations?*</font>
+
+# Methods
+## Data
+<center>
+![[@kuzilek_et_al_2017]](./oulad.png){width=90%}
+</center>
+
+* STEM course *FFF* and presentation 2013J (N = 2283)
+* target variable: last assessment (TMA5) transformed to *pass*/*fail* labels
+* excluded: 
+  * actively withdrawn students (n = 675) 
+  * students who did not submit all TMAs (n = 500)
+* final dataset:
+  * 1108 students
+  * $14$ predictors ($6$ categorical)
+  * aggregated interactions for the top five most common activity types
+
+## Counterfactual Explanations
+<br/><br/>
+<center>
+![Fig. 1: Counterfactual explanations.](./ce.png){width=95%}
+</center>
+
+**Properties** [@warren_et_al_2023]
+
+* *Sparsity* (minimal number of variable alterations = simplicity)
+* *Minimality* (smallest possible changes in variable values) 
+* *Validity* (minimizing the disparity between the counterfactual and the observation)
+* *Proximity* (necessity of a slight divergence between the factual and counterfactual features) 
+* *Plausibility* (realistic counterfactuals adhering to the underlying data distribution) 
+  
+<br/> 
+
+**Methods**
+
+* *What-if* ($WhatIf$) finds the observations closest to the observation from the other observations in terms of Gower distance [@wexler_et_al_2019]
+* *Multi-objective counterfactual explanations* ($MOC$) objects to find counterfactuals corresponding to the validity, proximity, sparsity, and plausibility [@dandl_et_al_2020] 
+* *Nearest instance counterfactual explanations* ($NICE$) finds the observations most similar to the observation in terms of the heterogenous Euclidean overlap method [@brughmans_et_al_2023]
+  * $NICE_{pr}$: based on proximity
+  * $NICE_{sp}$: based on sparsity
+
+<br/>
+
+## Experiment design
+<center>
+![Fig. 2: Experimental design.](./design.png){width=95%}
+</center>
+
+**Modeling**
+
+* forester AutoML tool [@forester]
+* machine learning models: decision trees, random forests, XGBoost, LightGBM
+* trained 28 models
+* best performing: random forest model (Accuracy $0.900$, AUC $0.771$, and F1 $0.946$)
+
+**Counterfactual generation**
+
+* counterfactuals package [@counterfactuals]
+* 12 students predicted as *fail*
+* generated counterfactuals: 
+  * $WhatIf$: 120
+  * $MOC$: 191
+  * $NICE_{pr}$: 39
+  * $NICE_{sp}$: 19
+
+**Evaluation**
+
+* based on standard measures: sparsity, minimality, validity, proximity, plausibility
+
+# Results & Discussion
+<center>
+![Tab. 1: The averages and standard deviations of the quality metrics for the methods.](./averages.png){width=100%}
+</center>
+
+* $NICE_{sp}$ performs the best in terms of sparsity, minimality, and plausibility
+* $WhatIf$ produce non-minimal explanations compared to the others
+* in plausibility $WhatIf$ is slightly better
+* the $NICE_{sp}$ method shows the best performance in terms of sparsity
+* the quality of the explanations compete with each other (average & distribution)
+* $WhatIf$ produced fewer proximity explanations compared to others
+
+<center>
+![Fig. 2: The distributions of the quality metrics for the methods.](./plot2.png)
+</center>
+
+* Kruskal-Wallis test was performed on the quality metric values
+* Significant differences between methods rank totals ($\chi_{(4)}^2 = 48.823$, $p < .001$)
+* Post hoc comparison Wilcoxon Tests with a Benjamini-Hochberg adjusted alpha level ($.016$)
+* The difference between the $MOC$ and $NICE\_{pr}$ not significant $(p = .115)$
+* Other comparisons were significant
+
+# Conclusions
+
+* Method selection
+  * depends on the requirements and the educational context
+  * guided by evaluating standard counterfactual properties
+* $NICE\_{sp}$ explanations are of higher quality in all considered metrics
+* no statistically significant difference between the $NICE\_{sp}$ and $MOC$ methods &rarr; deeper validation to avoid misconceptions
+* human-in-the-loop is needed
+* counterfactuals provide a simple way to understand learner learning and enable educational interventions
+* limitations: 
+  * data drift was not considered
+  * the most common methods were used
+
+# Acknowledgments
+This work was supported by the German Federal Ministry of Education and Research (BMBF), grant number 16DHBKI045.
+
+# References

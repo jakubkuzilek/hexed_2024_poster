@@ -23,13 +23,22 @@
   padding-top: 8% !important;
 }
 
-img.main-img-left{
+body > div.poster_wrap > div.main > p {
+  top: 35%;
+}
+
+#main-img-left {
+  height: 80%;
+  width:auto !important;
+}
+
+/*img.main-img-left{
   padding-bottom: 1cm !important;
 }
 
 img.main-img-right{
   padding-bottom: 1cm !important;
-}
+}*/
 
 .csl-entry{
   display: list-item;
