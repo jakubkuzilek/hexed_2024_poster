@@ -4,6 +4,7 @@
 
 .main p{
   padding-top: 8% !important;
+  margin-left: 0 !important;
 }
 
 body > div.poster_wrap > div.main > p {

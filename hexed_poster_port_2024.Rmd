@@ -136,7 +136,7 @@ bibliography: packages.bib
 </center>
 
 * Kruskal-Wallis test was performed on the quality metric values
-* Significant differences between methods rank totals ($\chi_{(4)}^2 = 48.823$, $p < .001$)
+* Significant differences between methods rank totals <br/>($\chi_{(4)}^2 = 48.823$, $p < .001$)
 * Post hoc comparison Wilcoxon Tests with a Benjamini-Hochberg adjusted alpha level ($.016$)
 * The difference between the $MOC$ and $NICE\_{pr}$ not significant $(p = .115)$
 * Other comparisons were significant
