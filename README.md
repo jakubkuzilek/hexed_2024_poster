@@ -12,5 +12,5 @@ For the paper codes see: [GitHub](https://github.com/mcavs/HEXED2024_paper)
 Citation: TBD
 
 <center>
-![](./figures/hexed_poster_port_2024.png)
+<img src="https://github.com/jakubkuzilek/hexed_2024_poster/blob/master/figures/hexed_poster_port_2024.png" width="500">
 </center>
