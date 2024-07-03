@@ -1,20 +1,3 @@
-/*body > div.poster_wrap > div.main > img.main-img-right {
-  width: 50%;
-}*/
-
-#selected-features-and-target-variable > div > img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 1cm;
-}
-
-#selected-features-and-target-variable > div > div{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .references{
   font-size:30px !important;
 }
@@ -27,9 +10,14 @@ body > div.poster_wrap > div.main > p {
   top: 35%;
 }
 
-#main-img-left {
-  height: 80%;
-  width:auto !important;
+#main-img-center{
+  width: 9% !important;
+  bottom: 0.3in !important;
+}
+
+#main-img-right {
+    width: 9.25% !important;
+    bottom: 0.25in !important;
 }
 
 /*img.main-img-left{

@@ -25,16 +25,16 @@ secondary_colour: "#B3D9FF"
 body_textsize: "42px"
 title_textsize: "55pt"
 subtitle_textsize: "40pt"
-logoleft_name: ./logo.png
-logoright_name: ./logo2.png
-logocenter_name: ./qrcode.png
+logoleft_name: ./formatting/logo.png
+logoright_name: ./formatting/logo2.png
+logocenter_name: ./formatting/qrcode.png
 output: 
   posterdown::posterdown_betterport:
     self_contained: true
     pandoc_args: --mathjax
     highlight: haddock
     number_sections: false
-    css: "style.css"
+    css: "./formatting/style.css"
 link-citations: true
 knit: pagedown::chrome_print
 bibliography: packages.bib
@@ -54,7 +54,7 @@ bibliography: packages.bib
 # Methods
 ## Data
 <center>
-![[@kuzilek_et_al_2017]](./oulad.png){width=90%}
+![[@kuzilek_et_al_2017]](./figures/oulad.png){width=90%}
 </center>
 
 * STEM course *FFF* and presentation 2013J (N = 2283)
@@ -70,7 +70,7 @@ bibliography: packages.bib
 ## Counterfactual Explanations
 <br/><br/>
 <center>
-![Fig. 1: Counterfactual explanations.](./ce.png){width=95%}
+![Fig. 1: Counterfactual explanations.](./figures/ce.png){width=95%}
 </center>
 
 **Properties** [@warren_et_al_2023]
@@ -95,7 +95,7 @@ bibliography: packages.bib
 
 ## Experiment design
 <center>
-![Fig. 2: Experimental design.](./design.png){width=95%}
+![Fig. 2: Experimental design.](./figures/design.png){width=95%}
 </center>
 
 **Modeling**
@@ -121,7 +121,7 @@ bibliography: packages.bib
 
 # Results & Discussion
 <center>
-![Tab. 1: The averages and standard deviations of the quality metrics for the methods.](./averages.png){width=100%}
+![Tab. 1: The averages and standard deviations of the quality metrics for the methods.](./figures/averages.png){width=100%}
 </center>
 
 * $NICE_{sp}$ performs the best in terms of sparsity, minimality, and plausibility
@@ -132,7 +132,7 @@ bibliography: packages.bib
 * $WhatIf$ produced fewer proximity explanations compared to others
 
 <center>
-![Fig. 2: The distributions of the quality metrics for the methods.](./plot2.png)
+![Fig. 2: The distributions of the quality metrics for the methods.](./figures/plot2.png)
 </center>
 
 * Kruskal-Wallis test was performed on the quality metric values
