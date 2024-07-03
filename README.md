@@ -14,3 +14,5 @@ Citation: TBD
 <center>
 <img src="https://github.com/jakubkuzilek/hexed_2024_poster/blob/master/figures/hexed_poster_port_2024.png" width="500">
 </center>
+
+> Please note, that we are using tweaked [version of the `posterdown` package](https://github.com/jakubkuzilek/posterdown).
